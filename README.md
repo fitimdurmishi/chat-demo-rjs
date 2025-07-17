@@ -31,7 +31,7 @@ A modern ChatGPT-like frontend interface built with React + Vite and TailwindCSS
    npm run dev
    ```
 
-3. Open [http://localhost:5173](http://localhost:5173) in your browser
+3. Open [http://localhost:5173](http://localhost:3000) in your browser
 
 ## Project Structure
 
