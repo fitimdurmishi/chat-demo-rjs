@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 
-const MessageInput = ({ onSendMessage, disabled }) => {
+const MessageInput = ({ onSendMessage, disabled = false }) => {
   const [message, setMessage] = useState('')
 
   const handleSubmit = (e) => {
@@ -27,7 +27,7 @@ const MessageInput = ({ onSendMessage, disabled }) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Message ChatGPT..."
+            placeholder="Your message..."
             disabled={disabled}
             rows="1"
             className="w-full p-3 pr-12 border border-gray-300 dark:border-gray-600 rounded-lg 
@@ -44,7 +44,7 @@ const MessageInput = ({ onSendMessage, disabled }) => {
           <button
             type="submit"
             disabled={!message.trim() || disabled}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 w-8 h-8
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-8 h-8
                      text-white bg-blue-500 hover:bg-blue-600 
                      disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed
                      rounded-lg transition-colors flex items-center justify-center z-10"
@@ -65,10 +65,6 @@ const MessageInput = ({ onSendMessage, disabled }) => {
 MessageInput.propTypes = {
   onSendMessage: PropTypes.func.isRequired,
   disabled: PropTypes.bool,
-}
-
-MessageInput.defaultProps = {
-  disabled: false,
 }
 
 export default MessageInput

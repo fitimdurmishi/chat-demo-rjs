@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const Sidebar = ({ 
   conversations, 
@@ -7,7 +7,7 @@ const Sidebar = ({
   onSelectConversation, 
   onNewConversation, 
   isOpen,
-  onToggle 
+  onToggle
 }) => {
   const scrollRef = useRef(null)
 
@@ -20,7 +20,7 @@ const Sidebar = ({
   return (
     <>
       {/* Sidebar */}
-      <div 
+      <div
         className={`${isOpen ? 'w-64' : 'w-0'} 
                     transition-all duration-300 overflow-hidden
                     bg-gray-900 text-white flex flex-col sidebar-container flex-shrink-0`}
