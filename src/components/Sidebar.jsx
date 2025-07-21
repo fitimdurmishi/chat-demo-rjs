@@ -202,6 +202,7 @@ const Sidebar = ({
             <div className="flex-1">
               <div className="text-sm font-medium">Demo User</div>
               <div className="text-xs text-gray-400">Free Plan</div>
+              <div className="text-xs text-gray-400">Env: {import.meta.env.VITE_ENVIRONMENT}</div>
             </div>
           </div>
         </div>
