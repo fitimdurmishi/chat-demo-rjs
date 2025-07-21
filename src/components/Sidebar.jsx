@@ -134,7 +134,18 @@ const Sidebar = ({
                     )}
                     {/* More menu popup */}
                     {menuOpenId === conversation.id && (
-                      <div className="absolute z-50 top-8 right-2 bg-white text-gray-900 rounded shadow-lg w-40">
+                      <div className="absolute z-50 top-8 right-2 bg-white text-gray-900 rounded-lg shadow-lg w-40">
+                        <button
+                          className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                          onClick={() => {
+                            setRenameId(conversation.id)
+                            setRenameValue(conversation.title)
+                            setMenuOpenId(null)
+                          }}
+                          type="button"
+                        >
+                          Share
+                        </button>
                         <button
                           className="block w-full text-left px-4 py-2 hover:bg-gray-100"
                           onClick={() => {
@@ -145,6 +156,18 @@ const Sidebar = ({
                           type="button"
                         >
                           Rename
+                        </button>
+                        <hr className="border-t border-gray-200 my-1" />
+                        <button
+                          className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                          onClick={() => {
+                            setRenameId(conversation.id)
+                            setRenameValue(conversation.title)
+                            setMenuOpenId(null)
+                          }}
+                          type="button"
+                        >
+                          Archive
                         </button>
                         <button
                           className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600"
