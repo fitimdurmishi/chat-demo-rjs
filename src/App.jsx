@@ -59,6 +59,8 @@ function App() {
         onToggle={() => setSidebarOpen(!sidebarOpen)}
         onDeleteConversation={handleDeleteConversation}
         onRenameConversation={onRenameConversation}
+        onShareConversation={(id) => console.log(`Share conversation ${id}. TODO: imlpement this`)} // Placeholder for share functionality
+        onArchiveConversation={(id) => console.log(`Archive conversation ${id}. TODO: implement this`)} // Placeholder for archive functionality
       />
       <div className="flex-1 flex flex-col min-w-0">
         <ChatInterface 
