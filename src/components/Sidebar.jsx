@@ -107,7 +107,7 @@ const Sidebar = ({
                               maxLength={50}
                             />
                             <button type="submit" className="text-blue-600 text-xs px-2">Save</button>
-                            <button type="button" className="text-gray-500 text-xs px-2" onClick={() => setRenameId(null)}>Cancel</button>
+                            <button type="button" className="text-gray-500 text-xs px-2" onClick={() => setRenameId(null)}>Cancel</button>                            
                           </form>
                         ) : (
                           conversation.title
@@ -118,18 +118,20 @@ const Sidebar = ({
                       </div>
                     </div>
                     {/* More (three dots) button */}
-                    <button
-                      className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 p-1"
-                      title="More actions"
-                      onClick={() => setMenuOpenId(menuOpenId === conversation.id ? null : conversation.id)}
-                      type="button"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <circle cx="5" cy="12" r="1.5" />
-                        <circle cx="12" cy="12" r="1.5" />
-                        <circle cx="19" cy="12" r="1.5" />
-                      </svg>
-                    </button>
+                    {renameId !== conversation.id && (
+                      <button
+                        className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                        title="More actions"
+                        onClick={() => setMenuOpenId(menuOpenId === conversation.id ? null : conversation.id)}
+                        type="button"
+                      >
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <circle cx="5" cy="12" r="1.5" />
+                          <circle cx="12" cy="12" r="1.5" />
+                          <circle cx="19" cy="12" r="1.5" />
+                        </svg>
+                      </button>
+                    )}
                     {/* More menu popup */}
                     {menuOpenId === conversation.id && (
                       <div className="absolute z-50 top-8 right-2 bg-white text-gray-900 rounded shadow-lg w-40">
