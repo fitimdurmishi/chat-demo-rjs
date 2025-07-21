@@ -331,6 +331,8 @@ Sidebar.propTypes = {
   onToggle: PropTypes.func.isRequired,
   onDeleteConversation: PropTypes.func.isRequired,
   onRenameConversation: PropTypes.func.isRequired,
+  onShareConversation: PropTypes.func.isRequired,
+  onArchiveConversation: PropTypes.func.isRequired,
 }
 
 export default Sidebar
