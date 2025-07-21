@@ -7,9 +7,11 @@ const Sidebar = ({
   onSelectConversation, 
   onNewConversation, 
   isOpen,
-  onToggle
+  onToggle,
+  onDeleteConversation
 }) => {
   const scrollRef = useRef(null)
+  const [dialogOpenId, setDialogOpenId] = useState(null) // Track which dialog is open
 
   // Auto-scroll to bottom when new conversations are added
   useEffect(() => {
@@ -56,24 +58,62 @@ const Sidebar = ({
             ) : (
               <div className="space-y-1 pb-4">
                 {conversations.map((conversation) => (
-                  <button
-                    key={conversation.id}
-                    onClick={() => onSelectConversation(conversation.id)}
-                    className={`w-full text-left p-3 rounded-lg transition-colors
-                               hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                                 activeConversation === conversation.id 
-                                   ? 'bg-gray-800 border-l-4 border-blue-500' 
-                                   : ''
-                               }`}
-                    aria-label={`Select conversation: ${conversation.title}`}
-                  >
-                    <div className="truncate text-sm">
-                      {conversation.title}
-                    </div>
-                    <div className="text-xs text-gray-400 mt-1">
-                      {conversation.messages.length} messages
-                    </div>
-                  </button>
+                  <div key={conversation.id} className="relative group">
+                    <button
+                      onClick={() => onSelectConversation(conversation.id)}
+                      className={`w-full text-left p-3 rounded-lg transition-colors
+                                 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                                   activeConversation === conversation.id 
+                                     ? 'bg-gray-800 border-l-4 border-blue-500' 
+                                     : ''
+                                 }`}
+                      aria-label={`Select conversation: ${conversation.title}`}
+                    >
+                      <div className="truncate text-sm">
+                        {conversation.title}
+                      </div>
+                      <div className="text-xs text-gray-400 mt-1">
+                        {conversation.messages.length} messages
+                      </div>
+                    </button>
+                    {/* Delete button */}
+                    <button
+                      className="absolute top-2 right-2 text-gray-400 hover:text-red-500 p-1"
+                      title="Delete conversation"
+                      onClick={() => setDialogOpenId(conversation.id)}
+                      type="button"
+                    >
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    {/* Popup Dialog */}
+                    {dialogOpenId === conversation.id && (
+                      <div className="absolute z-50 top-8 right-2 bg-white text-gray-900 rounded shadow-lg p-4 w-56">
+                        <div className="mb-2 font-semibold">Delete Conversation?</div>
+                        <div className="mb-4 text-sm">Are you sure you want to delete this conversation?</div>
+                        <div className="flex justify-end space-x-2">
+                          <button
+                            className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 text-gray-800"
+                            onClick={() => setDialogOpenId(null)}
+                            type="button"
+                          >
+                            Cancel
+                          </button>
+                          <button
+                            className="px-3 py-1 rounded bg-red-500 hover:bg-red-600 text-white"
+                            onClick={() => {
+                              onDeleteConversation(conversation.id)
+                              setDialogOpenId(null)
+                            }}
+                            type="button"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             )}
