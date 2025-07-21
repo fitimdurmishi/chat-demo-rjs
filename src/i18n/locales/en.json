@@ -1,0 +1,45 @@
+{
+  "common": {
+    "new_chat": "New Chat",
+    "delete": "Delete",
+    "rename": "Rename",
+    "share": "Share",
+    "archive": "Archive",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "edit": "Edit",
+    "save": "Save",
+    "search": "Search",
+    "settings": "Settings",
+    "language": "Language"
+  },
+  "sidebar": {
+    "new_conversation": "New Conversation",
+    "conversation_menu": "Conversation Menu",
+    "delete_confirmation": "Are you sure you want to delete this conversation?",
+    "rename_conversation": "Rename Conversation",
+    "share_conversation": "Share Conversation",
+    "archive_conversation": "Archive Conversation"
+  },
+  "chat": {
+    "ai_chat_demo": "AI Chat Demo",
+    "no_conversation_selected": "No conversation selected",
+    "select_conversation_message": "Please select or create a new conversation to start chatting.",
+    "type_message": "Type your message...",
+    "send": "Send",
+    "demo_ai_response": "I'm a demo AI assistant. In a real implementation, this would be connected to an actual AI service like OpenAI's GPT API. Your message was: \"{{message}}\""
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "ar": "العربية"
+  }
+}

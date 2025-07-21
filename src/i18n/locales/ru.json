@@ -1,0 +1,45 @@
+{
+  "common": {
+    "new_chat": "Новый чат",
+    "delete": "Удалить",
+    "rename": "Переименовать",
+    "share": "Поделиться",
+    "archive": "Архивировать",
+    "cancel": "Отмена",
+    "confirm": "Подтвердить",
+    "edit": "Редактировать",
+    "save": "Сохранить",
+    "search": "Поиск",
+    "settings": "Настройки",
+    "language": "Язык"
+  },
+  "sidebar": {
+    "new_conversation": "Новый разговор",
+    "conversation_menu": "Меню разговора",
+    "delete_confirmation": "Вы уверены, что хотите удалить этот разговор?",
+    "rename_conversation": "Переименовать разговор",
+    "share_conversation": "Поделиться разговором",
+    "archive_conversation": "Архивировать разговор"
+  },
+  "chat": {
+    "ai_chat_demo": "Демо ИИ Чат",
+    "no_conversation_selected": "Разговор не выбран",
+    "select_conversation_message": "Пожалуйста, выберите или создайте новый разговор, чтобы начать общение.",
+    "type_message": "Введите ваше сообщение...",
+    "send": "Отправить",
+    "demo_ai_response": "Я демонстрационный ИИ-ассистент. В реальной реализации это было бы подключено к настоящему сервису ИИ, такому как API GPT от OpenAI. Ваше сообщение было: \"{{message}}\""
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "ar": "العربية"
+  }
+}

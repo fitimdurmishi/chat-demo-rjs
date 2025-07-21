@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 import MessageList from './MessageList'
 import MessageInput from './MessageInput'
 
 const ChatInterface = ({ conversation, onUpdateConversation, onToggleSidebar }) => {
+  const { t } = useTranslation()
   const [isLoading, setIsLoading] = useState(false)
 
   // Safety check for conversation
@@ -13,10 +15,10 @@ const ChatInterface = ({ conversation, onUpdateConversation, onToggleSidebar }) 
         <div className="text-center">
           <div className="text-4xl mb-4">⚠️</div>
           <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-            No conversation selected
+            {t('chat.no_conversation_selected')}
           </h2>
           <p className="text-gray-600 dark:text-gray-400">
-            Please select or create a new conversation to start chatting.
+            {t('chat.select_conversation_message')}
           </p>
         </div>
       </div>
@@ -43,7 +45,7 @@ const ChatInterface = ({ conversation, onUpdateConversation, onToggleSidebar }) 
       const aiMessage = {
         id: Date.now() + 1,
         role: 'assistant',
-        content: `I'm a demo AI assistant. In a real implementation, this would be connected to an actual AI service like OpenAI's GPT API. Your message was: "${content}"`,
+        content: t('chat.demo_ai_response', { message: content }),
         timestamp: new Date()
       }
       
@@ -68,7 +70,7 @@ const ChatInterface = ({ conversation, onUpdateConversation, onToggleSidebar }) 
           </svg>
         </button>
         <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
-          AI Chat Demo
+          {t('chat.ai_chat_demo')}
         </h1>
         <div className="w-10"></div> {/* Spacer for centering */}
       </div>

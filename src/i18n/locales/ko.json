@@ -1,0 +1,45 @@
+{
+  "common": {
+    "new_chat": "새 채팅",
+    "delete": "삭제",
+    "rename": "이름 바꾸기",
+    "share": "공유",
+    "archive": "보관",
+    "cancel": "취소",
+    "confirm": "확인",
+    "edit": "편집",
+    "save": "저장",
+    "search": "검색",
+    "settings": "설정",
+    "language": "언어"
+  },
+  "sidebar": {
+    "new_conversation": "새 대화",
+    "conversation_menu": "대화 메뉴",
+    "delete_confirmation": "이 대화를 삭제하시겠습니까?",
+    "rename_conversation": "대화 이름 바꾸기",
+    "share_conversation": "대화 공유",
+    "archive_conversation": "대화 보관"
+  },
+  "chat": {
+    "ai_chat_demo": "AI 채팅 데모",
+    "no_conversation_selected": "선택된 대화가 없습니다",
+    "select_conversation_message": "채팅을 시작하려면 대화를 선택하거나 새 대화를 만드세요.",
+    "type_message": "메시지를 입력하세요...",
+    "send": "보내기",
+    "demo_ai_response": "저는 데모 AI 어시스턴트입니다. 실제 구현에서는 OpenAI의 GPT API와 같은 실제 AI 서비스에 연결됩니다. 당신의 메시지는: \"{{message}}\""
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "ar": "العربية"
+  }
+}

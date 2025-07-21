@@ -1,0 +1,45 @@
+{
+  "common": {
+    "new_chat": "Novo Chat",
+    "delete": "Excluir",
+    "rename": "Renomear",
+    "share": "Compartilhar",
+    "archive": "Arquivar",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "edit": "Editar",
+    "save": "Salvar",
+    "search": "Pesquisar",
+    "settings": "Configurações",
+    "language": "Idioma"
+  },
+  "sidebar": {
+    "new_conversation": "Nova Conversa",
+    "conversation_menu": "Menu da Conversa",
+    "delete_confirmation": "Tem certeza de que deseja excluir esta conversa?",
+    "rename_conversation": "Renomear Conversa",
+    "share_conversation": "Compartilhar Conversa",
+    "archive_conversation": "Arquivar Conversa"
+  },
+  "chat": {
+    "ai_chat_demo": "Demo Chat IA",
+    "no_conversation_selected": "Nenhuma conversa selecionada",
+    "select_conversation_message": "Por favor, selecione ou crie uma nova conversa para começar a conversar.",
+    "type_message": "Digite sua mensagem...",
+    "send": "Enviar",
+    "demo_ai_response": "Sou um assistente de IA demonstrativo. Em uma implementação real, isso seria conectado a um serviço de IA real como a API GPT da OpenAI. Sua mensagem foi: \"{{message}}\""
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "ar": "العربية"
+  }
+}

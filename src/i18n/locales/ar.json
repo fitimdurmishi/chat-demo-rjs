@@ -1,0 +1,45 @@
+{
+  "common": {
+    "new_chat": "دردشة جديدة",
+    "delete": "حذف",
+    "rename": "إعادة تسمية",
+    "share": "مشاركة",
+    "archive": "أرشفة",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "edit": "تحرير",
+    "save": "حفظ",
+    "search": "بحث",
+    "settings": "الإعدادات",
+    "language": "اللغة"
+  },
+  "sidebar": {
+    "new_conversation": "محادثة جديدة",
+    "conversation_menu": "قائمة المحادثة",
+    "delete_confirmation": "هل أنت متأكد من أنك تريد حذف هذه المحادثة؟",
+    "rename_conversation": "إعادة تسمية المحادثة",
+    "share_conversation": "مشاركة المحادثة",
+    "archive_conversation": "أرشفة المحادثة"
+  },
+  "chat": {
+    "ai_chat_demo": "عرض توضيحي للدردشة بالذكاء الاصطناعي",
+    "no_conversation_selected": "لم يتم اختيار محادثة",
+    "select_conversation_message": "يرجى اختيار أو إنشاء محادثة جديدة للبدء في الدردشة.",
+    "type_message": "اكتب رسالتك...",
+    "send": "إرسال",
+    "demo_ai_response": "أنا مساعد ذكي تجريبي. في التطبيق الفعلي، سيتم ربط هذا بخدمة ذكاء اصطناعي حقيقية مثل واجهة برمجة تطبيقات GPT من OpenAI. رسالتك كانت: \"{{message}}\""
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "ar": "العربية"
+  }
+}

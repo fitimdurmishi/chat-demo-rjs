@@ -1,0 +1,45 @@
+{
+  "common": {
+    "new_chat": "Neuer Chat",
+    "delete": "Löschen",
+    "rename": "Umbenennen",
+    "share": "Teilen",
+    "archive": "Archivieren",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "edit": "Bearbeiten",
+    "save": "Speichern",
+    "search": "Suchen",
+    "settings": "Einstellungen",
+    "language": "Sprache"
+  },
+  "sidebar": {
+    "new_conversation": "Neue Unterhaltung",
+    "conversation_menu": "Unterhaltungsmenü",
+    "delete_confirmation": "Sind Sie sicher, dass Sie diese Unterhaltung löschen möchten?",
+    "rename_conversation": "Unterhaltung umbenennen",
+    "share_conversation": "Unterhaltung teilen",
+    "archive_conversation": "Unterhaltung archivieren"
+  },
+  "chat": {
+    "ai_chat_demo": "KI-Chat Demo",
+    "no_conversation_selected": "Keine Unterhaltung ausgewählt",
+    "select_conversation_message": "Bitte wählen Sie eine Unterhaltung aus oder erstellen Sie eine neue, um mit dem Chatten zu beginnen.",
+    "type_message": "Geben Sie Ihre Nachricht ein...",
+    "send": "Senden",
+    "demo_ai_response": "Ich bin ein Demo-KI-Assistent. In einer echten Implementierung wäre dies mit einem echten KI-Service wie OpenAIs GPT-API verbunden. Ihre Nachricht war: \"{{message}}\""
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "ar": "العربية"
+  }
+}

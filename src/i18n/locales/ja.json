@@ -1,0 +1,45 @@
+{
+  "common": {
+    "new_chat": "新しいチャット",
+    "delete": "削除",
+    "rename": "名前を変更",
+    "share": "共有",
+    "archive": "アーカイブ",
+    "cancel": "キャンセル",
+    "confirm": "確認",
+    "edit": "編集",
+    "save": "保存",
+    "search": "検索",
+    "settings": "設定",
+    "language": "言語"
+  },
+  "sidebar": {
+    "new_conversation": "新しい会話",
+    "conversation_menu": "会話メニュー",
+    "delete_confirmation": "この会話を削除してもよろしいですか？",
+    "rename_conversation": "会話の名前を変更",
+    "share_conversation": "会話を共有",
+    "archive_conversation": "会話をアーカイブ"
+  },
+  "chat": {
+    "ai_chat_demo": "AIチャットデモ",
+    "no_conversation_selected": "会話が選択されていません",
+    "select_conversation_message": "チャットを始めるには、会話を選択するか新しい会話を作成してください。",
+    "type_message": "メッセージを入力してください...",
+    "send": "送信",
+    "demo_ai_response": "私はデモAIアシスタントです。実際の実装では、これはOpenAIのGPT APIなどの実際のAIサービスに接続されます。あなたのメッセージは：\"{{message}}\""
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "ar": "العربية"
+  }
+}

@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import ChatInterface from './components/ChatInterface'
 import Sidebar from './components/Sidebar'
 import conversationsData from './data/conversationsData' // Assuming you have some initial conversations data
 
 function App() {
+  const { t } = useTranslation()
   const [conversations, setConversations] = useState(conversationsData)
   const [activeConversation, setActiveConversation] = useState(1)
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -29,7 +31,7 @@ function App() {
     const newId = conversations.length > 0 ? Math.max(...conversations.map(c => c.id)) + 1 : 1
     const newConversation = { 
       id: newId, 
-      title: 'New Chat', 
+      title: t('common.new_chat'), 
       messages: [] 
     }
     setConversations(prev => [...prev, newConversation])
@@ -40,7 +42,7 @@ function App() {
     setConversations(prev => 
       prev.map(conv => 
         conv.id === id 
-          ? { ...conv, messages, title: messages.length > 0 ? messages[0].content.slice(0, 30) + '...' : 'New Chat' }
+          ? { ...conv, messages, title: messages.length > 0 ? messages[0].content.slice(0, 30) + '...' : t('common.new_chat') }
           : conv
       )
     )

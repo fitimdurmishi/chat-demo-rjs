@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types'
 import { useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import LanguageSelector from './LanguageSelector'
 
 const Sidebar = ({ 
   conversations, 
@@ -13,6 +15,7 @@ const Sidebar = ({
   onShareConversation,
   onArchiveConversation
 }) => {
+  const { t } = useTranslation()
   const scrollRef = useRef(null)
   const [menuOpenId, setMenuOpenId] = useState(null) // Track which menu is open
   const [renameId, setRenameId] = useState(null) // Track which conversation is being renamed
@@ -39,21 +42,22 @@ const Sidebar = ({
       >
         
         {/* Header */}
-        <div className="p-4 border-b border-gray-700 flex-shrink-0">
+        <div className="p-4 border-b border-gray-700 flex-shrink-0 space-y-3">
           <button
             onClick={onNewConversation}
             className="w-full flex items-center justify-center space-x-2 
                      bg-gray-800 hover:bg-gray-700 p-3 rounded-lg transition-colors
                      focus:outline-none focus:ring-2 focus:ring-blue-500
                      min-h-[52px] flex-shrink-0"
-            aria-label="Start new conversation"
+            aria-label={t('sidebar.new_conversation')}
             type="button"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             </svg>
-            <span>New Chat</span>
+            <span>{t('common.new_chat')}</span>
           </button>
+          <LanguageSelector className="w-full" />
         </div>
 
         {/* Conversations List */}
@@ -145,7 +149,7 @@ const Sidebar = ({
                             <path strokeLinecap="round" strokeLinejoin="round" d="M7 9l5-5 5 5" />
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v12" />
                           </svg>
-                          Share
+                          {t('common.share')}
                         </button>
                         <button
                           className="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center gap-2"
@@ -160,7 +164,7 @@ const Sidebar = ({
                           <svg className="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536M9 13l6.586-6.586a2 2 0 112.828 2.828L11.828 15.828a2 2 0 01-2.828 0L9 13zm-6 6h6v-6H3v6z" />
                           </svg>
-                          Rename
+                          {t('common.rename')}
                         </button>
                         <hr className="border-t border-gray-200 my-1" />
                         <button
@@ -177,7 +181,7 @@ const Sidebar = ({
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8" />
                             <path strokeLinecap="round" strokeLinejoin="round" d="M10 12h4" />
                           </svg>
-                          Archive
+                          {t('common.archive')}
                         </button>
                         <button
                           className="w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600 flex items-center gap-2"
@@ -191,22 +195,22 @@ const Sidebar = ({
                           <svg className="w-4 h-4 text-red-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3m5 0H4" />
                           </svg>
-                          Delete
+                          {t('common.delete')}
                         </button>
                       </div>
                     )}
                     {/* Delete confirmation dialog */}
                     {deleteConfirmId === conversation.id && (
                       <div className="absolute z-50 top-8 right-2 bg-white text-gray-900 rounded shadow-lg p-4 w-56">
-                        <div className="mb-2 font-semibold">Delete Conversation?</div>
-                        <div className="mb-4 text-sm">Are you sure you want to delete this conversation?</div>
+                        <div className="mb-2 font-semibold">{t('common.delete')} {t('sidebar.conversation_menu')}?</div>
+                        <div className="mb-4 text-sm">{t('sidebar.delete_confirmation')}</div>
                         <div className="flex justify-end space-x-2">
                           <button
                             className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 text-gray-800"
                             onClick={() => setDeleteConfirmId(null)}
                             type="button"
                           >
-                            Cancel
+                            {t('common.cancel')}
                           </button>
                           <button
                             className="px-3 py-1 rounded bg-red-500 hover:bg-red-600 text-white"
@@ -216,7 +220,7 @@ const Sidebar = ({
                             }}
                             type="button"
                           >
-                            Delete
+                            {t('common.delete')}
                           </button>
                         </div>
                       </div>

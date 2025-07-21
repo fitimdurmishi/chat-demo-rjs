@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
+import { useTranslation } from 'react-i18next'
 
 const MessageInput = ({ onSendMessage, disabled = false }) => {
+  const { t } = useTranslation()
   const [message, setMessage] = useState('')
 
   const handleSubmit = (e) => {
@@ -27,7 +29,7 @@ const MessageInput = ({ onSendMessage, disabled = false }) => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Your message..."
+            placeholder={t('chat.type_message')}
             disabled={disabled}
             rows="1"
             className="w-full p-3 pr-12 border border-gray-300 dark:border-gray-600 rounded-lg 
@@ -48,8 +50,8 @@ const MessageInput = ({ onSendMessage, disabled = false }) => {
                      text-white bg-blue-500 hover:bg-blue-600 
                      disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed
                      rounded-lg transition-colors flex items-center justify-center z-10"
-            title="Send message"
-            aria-label="Send message"
+            title={t('chat.send')}
+            aria-label={t('chat.send')}
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 

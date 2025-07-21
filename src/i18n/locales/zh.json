@@ -1,0 +1,45 @@
+{
+  "common": {
+    "new_chat": "新聊天",
+    "delete": "删除",
+    "rename": "重命名",
+    "share": "分享",
+    "archive": "归档",
+    "cancel": "取消",
+    "confirm": "确认",
+    "edit": "编辑",
+    "save": "保存",
+    "search": "搜索",
+    "settings": "设置",
+    "language": "语言"
+  },
+  "sidebar": {
+    "new_conversation": "新对话",
+    "conversation_menu": "对话菜单",
+    "delete_confirmation": "您确定要删除此对话吗？",
+    "rename_conversation": "重命名对话",
+    "share_conversation": "分享对话",
+    "archive_conversation": "归档对话"
+  },
+  "chat": {
+    "ai_chat_demo": "AI聊天演示",
+    "no_conversation_selected": "未选择对话",
+    "select_conversation_message": "请选择或创建新对话以开始聊天。",
+    "type_message": "输入您的消息...",
+    "send": "发送",
+    "demo_ai_response": "我是一个演示AI助手。在真实的实现中，这将连接到真实的AI服务，如OpenAI的GPT API。您的消息是：\"{{message}}\""
+  },
+  "languages": {
+    "en": "English",
+    "es": "Español",
+    "fr": "Français",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "中文",
+    "ja": "日本語",
+    "ko": "한국어",
+    "ar": "العربية"
+  }
+}
