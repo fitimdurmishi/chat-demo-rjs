@@ -46,9 +46,9 @@ const LanguageSelector = ({ className = '' }) => {
       {/* Language Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-2 bg-gray-800 hover:bg-gray-700 
+        className="flex items-center space-x-2 px-3 py-3 bg-gray-800 hover:bg-gray-700 
                    rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500
-                   text-white text-sm min-w-[120px]"
+                   text-white text-sm min-w-[120px] h-full"
         aria-label={t('common.language')}
         type="button"
       >
