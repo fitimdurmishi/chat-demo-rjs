@@ -27,7 +27,9 @@
     "select_conversation_message": "Por favor, selecione ou crie uma nova conversa para começar a conversar.",
     "type_message": "Digite sua mensagem...",
     "send": "Enviar",
-    "demo_ai_response": "Sou um assistente de IA demonstrativo. Em uma implementação real, isso seria conectado a um serviço de IA real como a API GPT da OpenAI. Sua mensagem foi: \"{{message}}\""
+    "demo_ai_response": "Sou um assistente de IA demonstrativo. Em uma implementação real, isso seria conectado a um serviço de IA real como a API GPT da OpenAI. Sua mensagem foi: \"{{message}}\"",
+    "welcome_title": "Com o que posso ajudar?",
+    "welcome_message": "Inicie uma conversa digitando uma mensagem abaixo. Esta é uma interface de demonstração semelhante ao ChatGPT."
   },
   "languages": {
     "en": "English",

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { useTranslation } from 'react-i18next'
 import MessageList from './MessageList'
 import MessageInput from './MessageInput'
+import LanguageSelector from './LanguageSelector'
 
 const ChatInterface = ({ conversation, onUpdateConversation, onToggleSidebar }) => {
   const { t } = useTranslation()
@@ -72,7 +73,7 @@ const ChatInterface = ({ conversation, onUpdateConversation, onToggleSidebar }) 
         <h1 className="text-lg font-semibold text-gray-900 dark:text-white">
           {t('chat.ai_chat_demo')}
         </h1>
-        <div className="w-10"></div> {/* Spacer for centering */}
+        <LanguageSelector className="h-10" />
       </div>
 
       {/* Messages */}

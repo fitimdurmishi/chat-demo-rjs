@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import LanguageSelector from './LanguageSelector'
 
 const Sidebar = ({ 
   conversations, 
@@ -35,7 +34,7 @@ const Sidebar = ({
     <>
       {/* Sidebar */}
       <div
-        className={`${isOpen ? 'w-96' : 'w-0'} 
+        className={`${isOpen ? 'w-64' : 'w-0'} 
                     transition-all duration-300 overflow-hidden
                     bg-gray-900 text-white flex flex-col sidebar-container flex-shrink-0`}
         style={{ minWidth: isOpen ? '256px' : '0px' }}
@@ -43,25 +42,20 @@ const Sidebar = ({
         
         {/* Header */}
         <div className="p-4 border-b border-gray-700 flex-shrink-0">
-          <div className="flex space-x-2 h-[52px]">
-            <button
-              onClick={onNewConversation}
-              className="flex-1 flex items-center justify-center space-x-2 
-                       bg-gray-800 hover:bg-gray-700 px-3 py-3 rounded-lg transition-colors
-                       focus:outline-none focus:ring-2 focus:ring-blue-500
-                       h-full flex-shrink-0"
-              aria-label={t('sidebar.new_conversation')}
-              type="button"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-              </svg>
-              <span>{t('common.new_chat')}</span>
-            </button>
-            <div className="flex-shrink-0">
-              <LanguageSelector className="h-full" />
-            </div>
-          </div>
+          <button
+            onClick={onNewConversation}
+            className="w-full flex items-center justify-center space-x-2 
+                     bg-gray-800 hover:bg-gray-700 px-3 py-3 rounded-lg transition-colors
+                     focus:outline-none focus:ring-2 focus:ring-blue-500
+                     h-[52px]"
+            aria-label={t('sidebar.new_conversation')}
+            type="button"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            <span>{t('common.new_chat')}</span>
+          </button>
         </div>
 
         {/* Conversations List */}

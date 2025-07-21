@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types'
 import { useEffect, useRef } from 'react'
+import { useTranslation } from 'react-i18next'
 import Message from './Message'
 
 const MessageList = ({ messages, isLoading = false }) => {
+  const { t } = useTranslation()
   const messagesEndRef = useRef(null)
   const containerRef = useRef(null)
 
@@ -23,11 +25,10 @@ const MessageList = ({ messages, isLoading = false }) => {
         <div className="flex flex-col items-center justify-center h-full text-center">
           <div className="text-4xl mb-4">💬</div>
           <h2 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
-            What can I help with?
+            {t('chat.welcome_title')}
           </h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-md">
-            Start a conversation by typing a message below. This is a demo interface 
-            similar to ChatGPT.
+            {t('chat.welcome_message')}
           </p>
         </div>
       )}

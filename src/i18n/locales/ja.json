@@ -27,7 +27,9 @@
     "select_conversation_message": "チャットを始めるには、会話を選択するか新しい会話を作成してください。",
     "type_message": "メッセージを入力してください...",
     "send": "送信",
-    "demo_ai_response": "私はデモAIアシスタントです。実際の実装では、これはOpenAIのGPT APIなどの実際のAIサービスに接続されます。あなたのメッセージは：\"{{message}}\""
+    "demo_ai_response": "私はデモAIアシスタントです。実際の実装では、これはOpenAIのGPT APIなどの実際のAIサービスに接続されます。あなたのメッセージは：\"{{message}}\"",
+    "welcome_title": "何をお手伝いしましょうか？",
+    "welcome_message": "下にメッセージを入力して会話を始めてください。これはChatGPTに似たデモインターフェースです。"
   },
   "languages": {
     "en": "English",

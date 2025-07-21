@@ -27,7 +27,9 @@
     "select_conversation_message": "Please select or create a new conversation to start chatting.",
     "type_message": "Type your message...",
     "send": "Send",
-    "demo_ai_response": "I'm a demo AI assistant. In a real implementation, this would be connected to an actual AI service like OpenAI's GPT API. Your message was: \"{{message}}\""
+    "demo_ai_response": "I'm a demo AI assistant. In a real implementation, this would be connected to an actual AI service like OpenAI's GPT API. Your message was: \"{{message}}\"",
+    "welcome_title": "What can I help with?",
+    "welcome_message": "Start a conversation by typing a message below. This is a demo interface similar to ChatGPT."
   },
   "languages": {
     "en": "English",

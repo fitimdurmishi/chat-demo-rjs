@@ -27,7 +27,9 @@
     "select_conversation_message": "Bitte wählen Sie eine Unterhaltung aus oder erstellen Sie eine neue, um mit dem Chatten zu beginnen.",
     "type_message": "Geben Sie Ihre Nachricht ein...",
     "send": "Senden",
-    "demo_ai_response": "Ich bin ein Demo-KI-Assistent. In einer echten Implementierung wäre dies mit einem echten KI-Service wie OpenAIs GPT-API verbunden. Ihre Nachricht war: \"{{message}}\""
+    "demo_ai_response": "Ich bin ein Demo-KI-Assistent. In einer echten Implementierung wäre dies mit einem echten KI-Service wie OpenAIs GPT-API verbunden. Ihre Nachricht war: \"{{message}}\"",
+    "welcome_title": "Womit kann ich Ihnen helfen?",
+    "welcome_message": "Beginnen Sie eine Unterhaltung, indem Sie unten eine Nachricht eingeben. Dies ist eine Demo-Oberfläche ähnlich wie ChatGPT."
   },
   "languages": {
     "en": "English",

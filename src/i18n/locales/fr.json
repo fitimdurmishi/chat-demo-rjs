@@ -27,7 +27,9 @@
     "select_conversation_message": "Veuillez sélectionner ou créer une nouvelle conversation pour commencer à discuter.",
     "type_message": "Tapez votre message...",
     "send": "Envoyer",
-    "demo_ai_response": "Je suis un assistant IA de démonstration. Dans une vraie implémentation, ceci serait connecté à un vrai service IA comme l'API GPT d'OpenAI. Votre message était : \"{{message}}\""
+    "demo_ai_response": "Je suis un assistant IA de démonstration. Dans une vraie implémentation, ceci serait connecté à un vrai service IA comme l'API GPT d'OpenAI. Votre message était : \"{{message}}\"",
+    "welcome_title": "Comment puis-je vous aider ?",
+    "welcome_message": "Commencez une conversation en tapant un message ci-dessous. Il s'agit d'une interface de démonstration similaire à ChatGPT."
   },
   "languages": {
     "en": "English",

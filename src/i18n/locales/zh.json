@@ -27,7 +27,9 @@
     "select_conversation_message": "请选择或创建新对话以开始聊天。",
     "type_message": "输入您的消息...",
     "send": "发送",
-    "demo_ai_response": "我是一个演示AI助手。在真实的实现中，这将连接到真实的AI服务，如OpenAI的GPT API。您的消息是：\"{{message}}\""
+    "demo_ai_response": "我是一个演示AI助手。在真实的实现中，这将连接到真实的AI服务，如OpenAI的GPT API。您的消息是：\"{{message}}\"",
+    "welcome_title": "我可以帮您什么？",
+    "welcome_message": "通过在下方输入消息开始对话。这是一个类似ChatGPT的演示界面。"
   },
   "languages": {
     "en": "English",

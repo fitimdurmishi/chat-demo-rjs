@@ -27,7 +27,9 @@
     "select_conversation_message": "채팅을 시작하려면 대화를 선택하거나 새 대화를 만드세요.",
     "type_message": "메시지를 입력하세요...",
     "send": "보내기",
-    "demo_ai_response": "저는 데모 AI 어시스턴트입니다. 실제 구현에서는 OpenAI의 GPT API와 같은 실제 AI 서비스에 연결됩니다. 당신의 메시지는: \"{{message}}\""
+    "demo_ai_response": "저는 데모 AI 어시스턴트입니다. 실제 구현에서는 OpenAI의 GPT API와 같은 실제 AI 서비스에 연결됩니다. 당신의 메시지는: \"{{message}}\"",
+    "welcome_title": "무엇을 도와드릴까요?",
+    "welcome_message": "아래에 메시지를 입력하여 대화를 시작하세요. 이것은 ChatGPT와 유사한 데모 인터페이스입니다."
   },
   "languages": {
     "en": "English",
