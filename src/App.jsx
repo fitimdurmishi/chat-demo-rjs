@@ -1,20 +1,10 @@
 import { useState } from 'react'
 import ChatInterface from './components/ChatInterface'
 import Sidebar from './components/Sidebar'
+import conversationsData from './data/conversationsData' // Assuming you have some initial conversations data
 
 function App() {
-  const [conversations, setConversations] = useState([
-    { id: 1, title: 'New Chat', messages: [] },
-    { id: 2, title: 'What is React and how does it work?', messages: [{ id: 1, role: 'user', content: 'What is React?', timestamp: new Date() }] },
-    { id: 3, title: 'JavaScript Array Methods', messages: [{ id: 1, role: 'user', content: 'Tell me about JavaScript array methods', timestamp: new Date() }] },
-    { id: 4, title: 'CSS Grid vs Flexbox', messages: [{ id: 1, role: 'user', content: 'What is the difference between CSS Grid and Flexbox?', timestamp: new Date() }] },
-    { id: 5, title: 'Node.js Best Practices', messages: [{ id: 1, role: 'user', content: 'What are Node.js best practices?', timestamp: new Date() }] },
-    { id: 6, title: 'Database Design Principles', messages: [{ id: 1, role: 'user', content: 'Database design principles', timestamp: new Date() }] },
-    { id: 7, title: 'API Design and REST', messages: [{ id: 1, role: 'user', content: 'How to design good APIs?', timestamp: new Date() }] },
-    { id: 8, title: 'Machine Learning Basics', messages: [{ id: 1, role: 'user', content: 'Explain machine learning basics', timestamp: new Date() }] },
-    { id: 9, title: 'Cloud Computing Overview', messages: [{ id: 1, role: 'user', content: 'What is cloud computing?', timestamp: new Date() }] },
-    { id: 10, title: 'Cybersecurity Fundamentals', messages: [{ id: 1, role: 'user', content: 'Cybersecurity fundamentals', timestamp: new Date() }] }
-  ])
+  const [conversations, setConversations] = useState(conversationsData)
   const [activeConversation, setActiveConversation] = useState(1)
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
@@ -26,6 +16,14 @@ function App() {
       setActiveConversation(remaining.length > 0 ? remaining[0].id : null)
     }
   }
+
+  const onRenameConversation = (id, newTitle) => {
+    setConversations(prev =>
+      prev.map(conv =>
+        conv.id === id ? { ...conv, title: newTitle } : conv
+      )
+    );
+  };
 
   const addNewConversation = () => {
     const newId = conversations.length > 0 ? Math.max(...conversations.map(c => c.id)) + 1 : 1
@@ -60,6 +58,7 @@ function App() {
         isOpen={sidebarOpen}
         onToggle={() => setSidebarOpen(!sidebarOpen)}
         onDeleteConversation={handleDeleteConversation}
+        onRenameConversation={onRenameConversation}
       />
       <div className="flex-1 flex flex-col min-w-0">
         <ChatInterface 

@@ -8,10 +8,14 @@ const Sidebar = ({
   onNewConversation, 
   isOpen,
   onToggle,
-  onDeleteConversation
+  onDeleteConversation,
+  onRenameConversation
 }) => {
   const scrollRef = useRef(null)
-  const [dialogOpenId, setDialogOpenId] = useState(null) // Track which dialog is open
+  const [menuOpenId, setMenuOpenId] = useState(null) // Track which menu is open
+  const [renameId, setRenameId] = useState(null) // Track which conversation is being renamed
+  const [renameValue, setRenameValue] = useState('') // Rename input value
+  const [deleteConfirmId, setDeleteConfirmId] = useState(null) // Track which delete dialog is open
 
   // Auto-scroll to bottom when new conversations are added
   useEffect(() => {
@@ -19,6 +23,15 @@ const Sidebar = ({
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight
     }
   }, [conversations.length])
+
+  // Sync renameValue with the current conversation title when renameId changes
+  // useEffect(() => {
+  //   if (renameId !== null) {
+  //     const conv = conversations.find(c => c.id === renameId)
+  //     if (conv) setRenameValue(conv.title)
+  //   }
+  // }, [renameId, conversations])
+
   return (
     <>
       {/* Sidebar */}
@@ -59,43 +72,99 @@ const Sidebar = ({
               <div className="space-y-1 pb-4">
                 {conversations.map((conversation) => (
                   <div key={conversation.id} className="relative group">
-                    <button
+                    <div
                       onClick={() => onSelectConversation(conversation.id)}
                       className={`w-full text-left p-3 rounded-lg transition-colors
-                                 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                                   activeConversation === conversation.id 
-                                     ? 'bg-gray-800 border-l-4 border-blue-500' 
-                                     : ''
-                                 }`}
+                        hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                          activeConversation === conversation.id
+                            ? 'bg-gray-800 border-l-4 border-blue-500'
+                            : ''
+                        }`}
                       aria-label={`Select conversation: ${conversation.title}`}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={e => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          onSelectConversation(conversation.id)
+                        }
+                      }}
                     >
                       <div className="truncate text-sm">
-                        {conversation.title}
+                        {renameId === conversation.id ? (
+                          <form
+                            onSubmit={e => {
+                              e.preventDefault()
+                              onRenameConversation(conversation.id, renameValue)
+                              setRenameId(null)
+                            }}
+                            className="flex items-center space-x-2"
+                          >
+                            <input
+                              className="border rounded px-2 py-1 text-sm w-full text-gray-400"
+                              value={renameValue}
+                              autoFocus
+                              onChange={e => setRenameValue(e.target.value)}
+                              maxLength={50}
+                            />
+                            <button type="submit" className="text-blue-600 text-xs px-2">Save</button>
+                            <button type="button" className="text-gray-500 text-xs px-2" onClick={() => setRenameId(null)}>Cancel</button>
+                          </form>
+                        ) : (
+                          conversation.title
+                        )}
                       </div>
                       <div className="text-xs text-gray-400 mt-1">
                         {conversation.messages.length} messages
                       </div>
-                    </button>
-                    {/* Delete button */}
+                    </div>
+                    {/* More (three dots) button */}
                     <button
-                      className="absolute top-2 right-2 text-gray-400 hover:text-red-500 p-1"
-                      title="Delete conversation"
-                      onClick={() => setDialogOpenId(conversation.id)}
+                      className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 p-1"
+                      title="More actions"
+                      onClick={() => setMenuOpenId(menuOpenId === conversation.id ? null : conversation.id)}
                       type="button"
                     >
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="5" cy="12" r="1.5" />
+                        <circle cx="12" cy="12" r="1.5" />
+                        <circle cx="19" cy="12" r="1.5" />
                       </svg>
                     </button>
-                    {/* Popup Dialog */}
-                    {dialogOpenId === conversation.id && (
+                    {/* More menu popup */}
+                    {menuOpenId === conversation.id && (
+                      <div className="absolute z-50 top-8 right-2 bg-white text-gray-900 rounded shadow-lg w-40">
+                        <button
+                          className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                          onClick={() => {
+                            setRenameId(conversation.id)
+                            setRenameValue(conversation.title)
+                            setMenuOpenId(null)
+                          }}
+                          type="button"
+                        >
+                          Rename
+                        </button>
+                        <button
+                          className="block w-full text-left px-4 py-2 hover:bg-gray-100 text-red-600"
+                          onClick={() => {
+                            setDeleteConfirmId(conversation.id)
+                            setMenuOpenId(null)
+                          }}
+                          type="button"
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    )}
+                    {/* Delete confirmation dialog */}
+                    {deleteConfirmId === conversation.id && (
                       <div className="absolute z-50 top-8 right-2 bg-white text-gray-900 rounded shadow-lg p-4 w-56">
                         <div className="mb-2 font-semibold">Delete Conversation?</div>
                         <div className="mb-4 text-sm">Are you sure you want to delete this conversation?</div>
                         <div className="flex justify-end space-x-2">
                           <button
                             className="px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 text-gray-800"
-                            onClick={() => setDialogOpenId(null)}
+                            onClick={() => setDeleteConfirmId(null)}
                             type="button"
                           >
                             Cancel
@@ -104,7 +173,7 @@ const Sidebar = ({
                             className="px-3 py-1 rounded bg-red-500 hover:bg-red-600 text-white"
                             onClick={() => {
                               onDeleteConversation(conversation.id)
-                              setDialogOpenId(null)
+                              setDeleteConfirmId(null)
                             }}
                             type="button"
                           >
@@ -168,6 +237,8 @@ Sidebar.propTypes = {
   onNewConversation: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
   onToggle: PropTypes.func.isRequired,
+  onDeleteConversation: PropTypes.func.isRequired,
+  onRenameConversation: PropTypes.func.isRequired,
 }
 
 export default Sidebar
