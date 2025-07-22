@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import { useAuth } from '../contexts/AuthContext'
 
 const Sidebar = ({ 
   conversations, 
@@ -15,6 +16,7 @@ const Sidebar = ({
   onArchiveConversation,
   onUserInfoClick
 }) => {
+  const { user } = useAuth(); // Get authenticated user
   const env = import.meta.env.VITE_ENVIRONMENT // Get the environment variable
   const { t } = useTranslation()
   const scrollRef = useRef(null)
@@ -295,8 +297,8 @@ const Sidebar = ({
               </svg>
             </div>
             <div className="flex-1">
-              <div className="text-sm font-medium">Demo User</div>
-              <div className="text-xs text-gray-400">Free Plan</div>
+              <div className="text-sm font-medium">{user?.fullname || 'Guest'}</div>
+              <div className="text-xs text-gray-400">{user?.plan || 'Free Plan'}</div>
               <div className="text-xs text-gray-400">Env: {env}</div>
             </div>
           </div>
