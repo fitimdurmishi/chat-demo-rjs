@@ -1,32 +1,20 @@
 import { useAuth0 } from '@auth0/auth0-react';
+import LoginForm from './components/LoginForm';
+import HomeAuthenticated from './HomeAuthenticated';
 
 export default function Home() {
-  const { isLoading, isAuthenticated, loginWithRedirect, logout, user } = useAuth0();
+  const { isLoading, isAuthenticated } = useAuth0();
 
-  if (isLoading) return <div>Loading...</div>;
-
-  const handleLogout = () => {
-    // Simple logout without returnTo parameter
-    logout();
-  };
+  if (isLoading) 
+    return (
+      <div className="flex items-center justify-center h-screen text-gray-400 bg-gray-50 dark:bg-gray-900">
+        Loading...
+      </div>
+    );
 
   return (
     <div>
-      <h1>Home Page</h1>
-      {isAuthenticated ? (
-        <>
-          <p>You are logged in!</p>
-          <p>Welcome, {user?.name || user?.email}!</p>
-          <button onClick={handleLogout}>
-            Logout
-          </button>
-        </>
-      ) : (
-        <>
-          <p>You are not logged in</p>
-          <button onClick={() => loginWithRedirect()}>Login</button>
-        </>
-      )}
+      {isAuthenticated ? <HomeAuthenticated /> : <LoginForm />}
     </div>
   );
 }
