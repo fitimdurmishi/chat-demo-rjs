@@ -3,10 +3,23 @@ import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import ReactCountryFlag from "react-country-flag";
 
+const getSystemTheme = () =>
+  window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+
 const LanguageSelector = ({ className = '' }) => {
   const { i18n, t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState(getSystemTheme());
   const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e) => setTheme(e.matches ? 'dark' : 'light');
+    mq.addEventListener('change', handleChange);
+    return () => mq.removeEventListener('change', handleChange);
+  }, []);
 
   const languages = [
     { code: 'en', name: t('languages.en'), countryCode: 'US' },
@@ -42,14 +55,19 @@ const LanguageSelector = ({ className = '' }) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Theme classes
+  const bgClass = theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900';
+  const hoverClass = theme === 'dark' ? 'hover:bg-gray-700' : 'hover:bg-gray-100';
+  const borderClass = theme === 'dark' ? 'border-gray-700' : 'border-gray-300';
+  const dropdownBgClass = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
+  const dropdownTextClass = theme === 'dark' ? 'text-white' : 'text-gray-900';
+
   return (
     <div className={`relative ${className}`} ref={dropdownRef}>
       {/* Language Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-2 px-3 py-3 bg-gray-800 hover:bg-gray-700 
-                   rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500
-                   text-white text-sm min-w-[120px] h-full"
+        className={`flex items-center space-x-2 px-3 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm min-w-[120px] h-full ${bgClass} ${hoverClass}`}
         aria-label={t('common.language')}
         type="button"
       >
@@ -69,15 +87,12 @@ const LanguageSelector = ({ className = '' }) => {
 
       {/* Dropdown Menu */}
       {isOpen && (
-        <div className="absolute top-full mt-2 right-0 bg-gray-800 border border-gray-700 
-                        rounded-lg shadow-lg z-50 min-w-[180px] max-h-60 overflow-y-auto">
+        <div className={`absolute top-full mt-2 right-0 rounded-lg shadow-lg z-50 min-w-[180px] max-h-60 overflow-y-auto border ${borderClass} ${dropdownBgClass}`}>
           {languages.map((language) => (
             <button
               key={language.code}
               onClick={() => handleLanguageChange(language.code)}
-              className={`w-full text-left px-4 py-2 hover:bg-gray-700 transition-colors
-                        flex items-center space-x-3 text-white text-sm
-                        ${i18n.language === language.code ? 'bg-gray-700' : ''}`}
+              className={`w-full text-left px-4 py-2 transition-colors flex items-center space-x-3 text-sm ${hoverClass} ${dropdownTextClass} ${i18n.language === language.code ? (theme === 'dark' ? 'bg-gray-700' : 'bg-gray-100') : ''}`}
               type="button"
             >
               <span className="text-lg">
