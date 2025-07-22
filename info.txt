@@ -1,0 +1,5 @@
+
+-- okta MyDemoChatApp
+Domain:         dev-0vflmbn0mnfcjbzm.us.auth0.com
+Client ID:      YVdEnfn23zuYcvYw6FuMR7z325TtW4Z7
+
