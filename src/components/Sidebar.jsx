@@ -16,7 +16,7 @@ const Sidebar = ({
   onArchiveConversation,
   onUserInfoClick
 }) => {
-  const { user } = useAuth(); // Get authenticated user
+  const { user, logout } = useAuth(); // Get authenticated user
   const env = import.meta.env.VITE_ENVIRONMENT // Get the environment variable
   const { t } = useTranslation()
   const scrollRef = useRef(null)
@@ -301,6 +301,13 @@ const Sidebar = ({
               <div className="text-xs text-gray-400">{user?.plan || 'Free Plan'}</div>
               <div className="text-xs text-gray-400">Env: {env}</div>
             </div>
+            <button
+              className="ml-2 px-3 py-1 rounded bg-red-600 hover:bg-red-700 text-white text-xs"
+              onClick={logout}
+              type="button"
+            >
+              Logout
+            </button>
           </div>
         </div>
       </div>

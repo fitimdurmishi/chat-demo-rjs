@@ -1,9 +1,10 @@
-import { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import ChatInterface from './components/ChatInterface'
-import Sidebar from './components/Sidebar'
-import conversationsData from './data/conversationsData' // Assuming you have some initial conversations data
-import { useAuth } from './contexts/AuthContext'
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import ChatInterface from './components/ChatInterface';
+import Sidebar from './components/Sidebar';
+import conversationsData from './data/conversationsData'; // Assuming you have some initial conversations data
+import { useAuth } from './contexts/AuthContext';
+import LoginForm from './components/LoginForm';
 
 function App() {
   const { user, login, logout } = useAuth();
@@ -15,22 +16,7 @@ function App() {
   if (!user) {
     // Simple login form
     return (
-      <div className="flex items-center justify-center h-screen">
-        <form onSubmit={e => {
-          e.preventDefault();
-          const username = e.target.username.value;
-          const password = e.target.password.value;
-          if (!login(username, password)) {
-            alert('Invalid credentials');
-          }
-        }}>
-          <div className="flex items-center justify-center space-x-3">
-            <input name="username" placeholder="Username" />
-            <input name="password" type="password" placeholder="Password" />
-            <button type="submit" className="p-1 w-24 text-white bg-blue-400 hover:bg-blue-500 rounded-lg">Login</button>
-          </div>          
-        </form>
-      </div>
+      <LoginForm login={login} />
     );
   }
 
@@ -84,7 +70,7 @@ function App() {
 
   const handleUserInfoClick = () => {
     console.log('TODO: handle user info click.');
-    alert('TODO: handle user info click.');    
+    // alert('TODO: handle user info click.');    
   };
 
   const handleToggleSidebar = () => {
