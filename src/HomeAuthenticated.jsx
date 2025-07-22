@@ -3,29 +3,14 @@ import { useTranslation } from 'react-i18next';
 import ChatInterface from './components/ChatInterface';
 import Sidebar from './components/Sidebar';
 import conversationsData from './data/conversationsData'; // Assuming you have some initial conversations data
-import LoginForm from './components/LoginForm';
-import { useAuth0 } from '@auth0/auth0-react';
+// import { useAuth0 } from '@auth0/auth0-react';
 
 function HomeAuthenticated() {
-  const { isLoading, isAuthenticated, login } = useAuth0();
+//   const { isAuthenticated, login } = useAuth0(); // Get authenticated user
   const { t } = useTranslation()
   const [conversations, setConversations] = useState(conversationsData)
   const [activeConversation, setActiveConversation] = useState(1)
   const [sidebarOpen, setSidebarOpen] = useState(true)
-
-  if (isLoading) 
-    return (
-        <div className="flex items-center justify-center h-screen text-gray-400 bg-gray-50 dark:bg-gray-900">
-            Loading...
-        </div>
-    );
-
-  if (!isAuthenticated) {
-    // Simple login form
-    return (
-      <LoginForm login={login} />
-    );
-  }
 
   const handleDeleteConversation = (id) => {
     setConversations(prev => prev.filter(conv => conv.id !== id))
