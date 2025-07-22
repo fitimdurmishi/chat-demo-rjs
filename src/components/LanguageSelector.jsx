@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
+import ReactCountryFlag from "react-country-flag";
 
 const LanguageSelector = ({ className = '' }) => {
   const { i18n, t } = useTranslation();
@@ -8,17 +9,17 @@ const LanguageSelector = ({ className = '' }) => {
   const dropdownRef = useRef(null);
 
   const languages = [
-    { code: 'en', name: t('languages.en'), flag: '🇺🇸' },
-    { code: 'es', name: t('languages.es'), flag: '🇪🇸' },
-    { code: 'fr', name: t('languages.fr'), flag: '🇫🇷' },
-    { code: 'de', name: t('languages.de'), flag: '🇩🇪' },
-    { code: 'it', name: t('languages.it'), flag: '🇮🇹' },
-    { code: 'pt', name: t('languages.pt'), flag: '🇵🇹' },
-    { code: 'ru', name: t('languages.ru'), flag: '🇷🇺' },
-    { code: 'zh', name: t('languages.zh'), flag: '🇨🇳' },
-    { code: 'ja', name: t('languages.ja'), flag: '🇯🇵' },
-    { code: 'ko', name: t('languages.ko'), flag: '🇰🇷' },
-    { code: 'ar', name: t('languages.ar'), flag: '🇸🇦' },
+    { code: 'en', name: t('languages.en'), countryCode: 'US' },
+    { code: 'es', name: t('languages.es'), countryCode: 'ES' },
+    { code: 'fr', name: t('languages.fr'), countryCode: 'FR' },
+    { code: 'de', name: t('languages.de'), countryCode: 'DE' },
+    { code: 'it', name: t('languages.it'), countryCode: 'IT' },
+    { code: 'pt', name: t('languages.pt'), countryCode: 'PT' },
+    { code: 'ru', name: t('languages.ru'), countryCode: 'RU' },
+    { code: 'zh', name: t('languages.zh'), countryCode: 'CN' },
+    { code: 'ja', name: t('languages.ja'), countryCode: 'JP' },
+    { code: 'ko', name: t('languages.ko'), countryCode: 'KR' },
+    { code: 'ar', name: t('languages.ar'), countryCode: 'SA' },
   ];
 
   const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0];
@@ -52,7 +53,9 @@ const LanguageSelector = ({ className = '' }) => {
         aria-label={t('common.language')}
         type="button"
       >
-        <span className="text-lg">{currentLanguage.flag}</span>
+        <span className="text-sm">
+          <ReactCountryFlag countryCode={currentLanguage.countryCode} svg style={{ width: '1.5em', height: '1.5em' }} />
+        </span>
         <span className="truncate">{currentLanguage.name}</span>
         <svg 
           className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`}
@@ -73,17 +76,14 @@ const LanguageSelector = ({ className = '' }) => {
               key={language.code}
               onClick={() => handleLanguageChange(language.code)}
               className={`w-full text-left px-4 py-2 hover:bg-gray-700 transition-colors
-                         flex items-center space-x-3 text-white text-sm
-                         ${i18n.language === language.code ? 'bg-gray-700' : ''}`}
+                        flex items-center space-x-3 text-white text-sm
+                        ${i18n.language === language.code ? 'bg-gray-700' : ''}`}
               type="button"
             >
-              <span className="text-lg">{language.flag}</span>
+              <span className="text-lg">
+                <ReactCountryFlag countryCode={language.countryCode} svg style={{ width: '1.5em', height: '1.5em' }} />
+              </span>
               <span>{language.name}</span>
-              {i18n.language === language.code && (
-                <svg className="w-4 h-4 ml-auto text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                </svg>
-              )}
             </button>
           ))}
         </div>
