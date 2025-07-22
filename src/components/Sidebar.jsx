@@ -8,7 +8,7 @@ const Sidebar = ({
   onSelectConversation, 
   onNewConversation, 
   isOpen,
-  onToggle,
+  onToggleSidebar,
   onDeleteConversation,
   onRenameConversation,
   onShareConversation,
@@ -307,13 +307,13 @@ const Sidebar = ({
       {isOpen && (
         <div 
           className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden"
-          onClick={onToggle}
+          onClick={onToggleSidebar}
           aria-label="Close sidebar"
           role="button"
           tabIndex={0}
           onKeyDown={(e) => {
             if (e.key === 'Enter' || e.key === ' ') {
-              onToggle()
+              onToggleSidebar()
             }
           }}
         />
@@ -334,7 +334,7 @@ Sidebar.propTypes = {
   onSelectConversation: PropTypes.func.isRequired,
   onNewConversation: PropTypes.func.isRequired,
   isOpen: PropTypes.bool.isRequired,
-  onToggle: PropTypes.func.isRequired,
+  onToggleSidebar: PropTypes.func.isRequired,
   onDeleteConversation: PropTypes.func.isRequired,
   onRenameConversation: PropTypes.func.isRequired,
   onShareConversation: PropTypes.func.isRequired,
