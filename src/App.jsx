@@ -42,13 +42,19 @@ function App() {
     setConversations(prev => 
       prev.map(conv => 
         conv.id === id 
-          ? { ...conv, messages, title: messages.length > 0 ? messages[0].content.slice(0, 30) + '...' : t('common.new_chat') }
+          ? { ...conv, messages } // just update messages for this conversation
           : conv
       )
     )
   }
 
   const currentConversation = conversations.find(c => c.id === activeConversation)
+
+  const handleUserInfoClick = () => {
+    // Example: open a modal, show alert, etc.
+    console.log('User info clicked'); // Placeholder for user info click handler
+    alert('User info clicked!');    
+  };
 
   return (
     <div className="flex h-screen bg-gray-50 dark:bg-gray-900 overflow-hidden">
@@ -63,6 +69,7 @@ function App() {
         onRenameConversation={onRenameConversation}
         onShareConversation={(id) => console.log(`Share conversation ${id}. TODO: imlpement this`)} // Placeholder for share functionality
         onArchiveConversation={(id) => console.log(`Archive conversation ${id}. TODO: implement this`)} // Placeholder for archive functionality
+        onUserInfoClick={handleUserInfoClick} // user info click handler
       />
       <div className="flex-1 flex flex-col min-w-0">
         <ChatInterface 
