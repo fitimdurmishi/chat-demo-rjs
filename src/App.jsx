@@ -7,6 +7,7 @@ import Profile from './components/Profile';
 import LoginCallback from './components/auth/LoginCallback';
 import LogoutPage from './components/auth/LogoutPage';
 
+
 function App() {
   return (
     <Auth0Provider

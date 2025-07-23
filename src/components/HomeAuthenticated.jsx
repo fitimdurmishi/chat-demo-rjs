@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+// import { useAuth0 } from '@auth0/auth0-react';
+
 import ChatInterface from './ChatInterface';
 import Sidebar from './Sidebar';
 import conversationsData from '../data/conversationsData'; // Assuming you have some initial conversations data
-// import { useAuth0 } from '@auth0/auth0-react';
+
 
 function HomeAuthenticated() {
 //   const { isAuthenticated, login } = useAuth0(); // Get authenticated user
@@ -12,23 +14,7 @@ function HomeAuthenticated() {
   const [activeConversation, setActiveConversation] = useState(1)
   const [sidebarOpen, setSidebarOpen] = useState(true)
 
-  const handleDeleteConversation = (id) => {
-    setConversations(prev => prev.filter(conv => conv.id !== id))
-    // If the deleted conversation was active, switch to another one or none
-    if (activeConversation === id) {
-      const remaining = conversations.filter(conv => conv.id !== id)
-      setActiveConversation(remaining.length > 0 ? remaining[0].id : null)
-    }
-  }
-
-  const onRenameConversation = (id, newTitle) => {
-    setConversations(prev =>
-      prev.map(conv =>
-        conv.id === id ? { ...conv, title: newTitle } : conv
-      )
-    );
-  };
-
+  // #region Conversation Management
   const addNewConversation = () => {
     const newId = conversations.length > 0 ? Math.max(...conversations.map(c => c.id)) + 1 : 1
     const newConversation = { 
@@ -50,8 +36,25 @@ function HomeAuthenticated() {
     )
   }
 
-  const currentConversation = conversations.find(c => c.id === activeConversation)
+  const handleDeleteConversation = (id) => {
+    setConversations(prev => prev.filter(conv => conv.id !== id))
+    // If the deleted conversation was active, switch to another one or none
+    if (activeConversation === id) {
+      const remaining = conversations.filter(conv => conv.id !== id)
+      setActiveConversation(remaining.length > 0 ? remaining[0].id : null)
+    }
+  }
 
+  const onRenameConversation = (id, newTitle) => {
+    setConversations(prev =>
+      prev.map(conv =>
+        conv.id === id ? { ...conv, title: newTitle } : conv
+      )
+    );
+  };
+  // #endregion
+
+  // #region Conversation Actions
   const handleShareConversation = (id) => {
     console.log(`Share conversation ${id}. TODO: implement this`);
   }
@@ -59,15 +62,22 @@ function HomeAuthenticated() {
   const handleArchiveConversation = (id) => {
     console.log(`Archive conversation ${id}. TODO: implement this`);
   };
+  // #endregion
+
+  // #region UI Controls
+  const handleToggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen)
+  }
 
   const handleUserInfoClick = () => {
     console.log('TODO: handle user info click.');
     // alert('TODO: handle user info click.');    
   };
+  // #endregion
 
-  const handleToggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen)
-  }
+  // #region Computed Values
+  const currentConversation = conversations.find(c => c.id === activeConversation)
+  // #endregion
 
   return (
     <div className="flex h-screen bg-gray-50 dark:bg-gray-900 overflow-hidden">
