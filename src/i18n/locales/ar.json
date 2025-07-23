@@ -20,7 +20,9 @@
     "delete_confirmation": "هل أنت متأكد من أنك تريد حذف هذه المحادثة؟",
     "rename_conversation": "إعادة تسمية المحادثة",
     "share_conversation": "مشاركة المحادثة",
-    "archive_conversation": "أرشفة المحادثة"
+    "archive_conversation": "أرشفة المحادثة",
+    "chats": "المحادثات",
+    "search_conversations": "البحث في المحادثات..."
   },
   "chat": {
     "ai_chat_demo": "عرض توضيحي للدردشة بالذكاء الاصطناعي",

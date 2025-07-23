@@ -20,7 +20,9 @@
     "delete_confirmation": "この会話を削除してもよろしいですか？",
     "rename_conversation": "会話の名前を変更",
     "share_conversation": "会話を共有",
-    "archive_conversation": "会話をアーカイブ"
+    "archive_conversation": "会話をアーカイブ",
+    "chats": "チャット",
+    "search_conversations": "会話を検索..."
   },
   "chat": {
     "ai_chat_demo": "AIチャットデモ",

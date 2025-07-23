@@ -20,7 +20,9 @@
     "delete_confirmation": "您确定要删除此对话吗？",
     "rename_conversation": "重命名对话",
     "share_conversation": "分享对话",
-    "archive_conversation": "归档对话"
+    "archive_conversation": "存档对话",
+    "chats": "聊天",
+    "search_conversations": "搜索对话..."
   },
   "chat": {
     "ai_chat_demo": "AI聊天演示",

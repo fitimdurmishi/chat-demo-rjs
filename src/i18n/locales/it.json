@@ -20,7 +20,9 @@
     "delete_confirmation": "Sei sicuro di voler eliminare questa conversazione?",
     "rename_conversation": "Rinomina Conversazione",
     "share_conversation": "Condividi Conversazione",
-    "archive_conversation": "Archivia Conversazione"
+    "archive_conversation": "Archivia Conversazione",
+    "chats": "Chat",
+    "search_conversations": "Cerca conversazioni..."
   },
   "chat": {
     "ai_chat_demo": "Demo Chat IA",

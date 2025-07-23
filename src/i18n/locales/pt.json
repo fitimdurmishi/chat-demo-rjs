@@ -16,11 +16,13 @@
   },
   "sidebar": {
     "new_conversation": "Nova Conversa",
-    "conversation_menu": "Menu da Conversa",
+    "conversation_menu": "Menu de Conversa",
     "delete_confirmation": "Tem certeza de que deseja excluir esta conversa?",
     "rename_conversation": "Renomear Conversa",
     "share_conversation": "Compartilhar Conversa",
-    "archive_conversation": "Arquivar Conversa"
+    "archive_conversation": "Arquivar Conversa",
+    "chats": "Conversas",
+    "search_conversations": "Pesquisar conversas..."
   },
   "chat": {
     "ai_chat_demo": "Demo Chat IA",

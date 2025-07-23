@@ -27,6 +27,12 @@ const Sidebar = ({
   const [deleteConfirmId, setDeleteConfirmId] = useState(null) // Track which delete dialog is open
   const [shareId, setShareId] = useState(null) // Track which conversation is being shared
   const [archiveId, setArchiveId] = useState(null) // Track which conversation is being archived
+  const [searchQuery, setSearchQuery] = useState('') // Search query state
+
+  // Filter conversations based on search query
+  const filteredConversations = conversations.filter(conversation =>
+    conversation.title.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   // Auto-scroll to bottom when new conversations are added
   useEffect(() => {
@@ -46,7 +52,7 @@ const Sidebar = ({
       >
         
         {/* Header */}
-        <div className="p-4 border-b border-gray-700 flex-shrink-0">
+        <div className="p-4 border-gray-700 flex-shrink-0">
           {isOpen ? (
             <button
               onClick={onNewConversation}
@@ -81,9 +87,42 @@ const Sidebar = ({
         {/* Conversations List */}
         {isOpen && (
           <div className="flex-1 conversations-container flex flex-col">
-            {/* Chats Header */}
+            {/* Search Input */}
             <div className="px-4 py-2 border-gray-700 flex-shrink-0">
-              <h2 className="text-sm font-medium text-gray-300">Chats</h2>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder={t('sidebar.search_conversations')}
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full bg-gray-800 text-white placeholder-gray-400 border border-gray-600 rounded-lg px-3 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
+                />
+                <svg 
+                  className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-2.5 text-gray-400 hover:text-gray-200"
+                    type="button"
+                    aria-label="Clear search"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Chats Header */}
+            <div className="px-4 py-2 border-b border-gray-700 flex-shrink-0">
+              <h2 className="text-sm font-medium text-gray-300">{t('sidebar.chats')}</h2>
             </div>
             
             <div ref={scrollRef} className="conversations-scroll scrollbar-thin p-2 flex-1">
@@ -92,9 +131,14 @@ const Sidebar = ({
                   <p className="text-sm">No conversations yet</p>
                   <p className="text-xs mt-1">Start a new chat to begin</p>
                 </div>
+              ) : filteredConversations.length === 0 && searchQuery ? (
+                <div className="text-center text-gray-400 mt-8">
+                  <p className="text-sm">No conversations found</p>
+                  <p className="text-xs mt-1">Try a different search term</p>
+                </div>
               ) : (
                 <div className="space-y-1 pb-4">
-                  {conversations.map((conversation) => (
+                  {filteredConversations.map((conversation) => (
                     <div key={conversation.id} className="relative group">
                       <div
                         onClick={() => onSelectConversation(conversation.id)}

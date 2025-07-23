@@ -20,7 +20,9 @@
     "delete_confirmation": "Sind Sie sicher, dass Sie diese Unterhaltung löschen möchten?",
     "rename_conversation": "Unterhaltung umbenennen",
     "share_conversation": "Unterhaltung teilen",
-    "archive_conversation": "Unterhaltung archivieren"
+    "archive_conversation": "Unterhaltung archivieren",
+    "chats": "Chats",
+    "search_conversations": "Unterhaltungen suchen..."
   },
   "chat": {
     "ai_chat_demo": "KI-Chat Demo",

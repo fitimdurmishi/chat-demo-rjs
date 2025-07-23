@@ -15,12 +15,14 @@
     "logout": "Выйти"
   },
   "sidebar": {
-    "new_conversation": "Новый разговор",
-    "conversation_menu": "Меню разговора",
-    "delete_confirmation": "Вы уверены, что хотите удалить этот разговор?",
-    "rename_conversation": "Переименовать разговор",
-    "share_conversation": "Поделиться разговором",
-    "archive_conversation": "Архивировать разговор"
+    "new_conversation": "Новая беседа",
+    "conversation_menu": "Меню беседы",
+    "delete_confirmation": "Вы уверены, что хотите удалить эту беседу?",
+    "rename_conversation": "Переименовать беседу",
+    "share_conversation": "Поделиться беседой",
+    "archive_conversation": "Архивировать беседу",
+    "chats": "Чаты",
+    "search_conversations": "Поиск бесед..."
   },
   "chat": {
     "ai_chat_demo": "Демо ИИ Чат",

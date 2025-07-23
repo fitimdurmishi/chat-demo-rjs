@@ -20,7 +20,9 @@
     "delete_confirmation": "Are you sure you want to delete this conversation?",
     "rename_conversation": "Rename Conversation",
     "share_conversation": "Share Conversation",
-    "archive_conversation": "Archive Conversation"
+    "archive_conversation": "Archive Conversation",
+    "chats": "Chats",
+    "search_conversations": "Search conversations..."
   },
   "chat": {
     "ai_chat_demo": "AI Chat Demo",

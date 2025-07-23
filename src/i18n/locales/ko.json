@@ -18,9 +18,11 @@
     "new_conversation": "새 대화",
     "conversation_menu": "대화 메뉴",
     "delete_confirmation": "이 대화를 삭제하시겠습니까?",
-    "rename_conversation": "대화 이름 바꾸기",
+    "rename_conversation": "대화 이름 변경",
     "share_conversation": "대화 공유",
-    "archive_conversation": "대화 보관"
+    "archive_conversation": "대화 보관",
+    "chats": "채팅",
+    "search_conversations": "대화 검색..."
   },
   "chat": {
     "ai_chat_demo": "AI 채팅 데모",
