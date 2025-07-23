@@ -313,7 +313,7 @@ const Sidebar = ({
               onClick={logout}
               type="button"
             >
-              Logout
+              {t('common.logout')}
             </button>
           </div>
         </div>

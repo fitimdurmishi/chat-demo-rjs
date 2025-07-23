@@ -11,7 +11,8 @@
     "save": "Сохранить",
     "search": "Поиск",
     "settings": "Настройки",
-    "language": "Язык"
+    "language": "Язык",
+    "logout": "Выйти"
   },
   "sidebar": {
     "new_conversation": "Новый разговор",

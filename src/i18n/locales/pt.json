@@ -11,7 +11,8 @@
     "save": "Salvar",
     "search": "Pesquisar",
     "settings": "Configurações",
-    "language": "Idioma"
+    "language": "Idioma",
+    "logout": "Sair"
   },
   "sidebar": {
     "new_conversation": "Nova Conversa",

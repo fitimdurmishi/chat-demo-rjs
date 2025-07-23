@@ -11,7 +11,8 @@
     "save": "حفظ",
     "search": "بحث",
     "settings": "الإعدادات",
-    "language": "اللغة"
+    "language": "اللغة",
+    "logout": "تسجيل الخروج"
   },
   "sidebar": {
     "new_conversation": "محادثة جديدة",

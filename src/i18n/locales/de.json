@@ -11,7 +11,8 @@
     "save": "Speichern",
     "search": "Suchen",
     "settings": "Einstellungen",
-    "language": "Sprache"
+    "language": "Sprache",
+    "logout": "Abmelden"
   },
   "sidebar": {
     "new_conversation": "Neue Unterhaltung",

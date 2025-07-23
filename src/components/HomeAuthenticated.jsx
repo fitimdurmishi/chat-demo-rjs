@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import ChatInterface from './components/ChatInterface';
-import Sidebar from './components/Sidebar';
-import conversationsData from './data/conversationsData'; // Assuming you have some initial conversations data
+import ChatInterface from './ChatInterface';
+import Sidebar from './Sidebar';
+import conversationsData from '../data/conversationsData'; // Assuming you have some initial conversations data
 // import { useAuth0 } from '@auth0/auth0-react';
 
 function HomeAuthenticated() {

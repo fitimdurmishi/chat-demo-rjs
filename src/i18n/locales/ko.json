@@ -11,7 +11,8 @@
     "save": "저장",
     "search": "검색",
     "settings": "설정",
-    "language": "언어"
+    "language": "언어",
+    "logout": "로그아웃"
   },
   "sidebar": {
     "new_conversation": "새 대화",

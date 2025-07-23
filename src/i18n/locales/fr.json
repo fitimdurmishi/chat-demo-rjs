@@ -11,7 +11,8 @@
     "save": "Sauvegarder",
     "search": "Rechercher",
     "settings": "Paramètres",
-    "language": "Langue"
+    "language": "Langue",
+    "logout": "Se déconnecter"
   },
   "sidebar": {
     "new_conversation": "Nouvelle Conversation",
