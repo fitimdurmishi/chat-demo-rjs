@@ -2,7 +2,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import LoginForm from './auth/LoginForm';
 import HomeAuthenticated from './HomeAuthenticated';
 
-export default function Home() {
+function Home() {
   const { isLoading, isAuthenticated } = useAuth0();
 
   if (isLoading) 
@@ -18,3 +18,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;

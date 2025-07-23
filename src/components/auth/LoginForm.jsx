@@ -1,13 +1,14 @@
 import { useAuth0 } from '@auth0/auth0-react';
 
 const LoginForm = () => {
-    const { isLoading, loginWithRedirect } = useAuth0();
+    const { isLoading, loginWithRedirect, loginWithPopup } = useAuth0();
 
     if (isLoading) 
-        return 
+        return (
             <div className="flex items-center justify-center h-screen text-gray-500 bg-gray-200 dark:bg-gray-900">
                 Loading...
-            </div>;
+            </div>
+        );
 
     return (
         <div className="flex items-center justify-center h-screen text-gray-500 bg-gray-200 dark:bg-gray-900">

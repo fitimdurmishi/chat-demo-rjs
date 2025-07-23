@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import { useNavigate } from 'react-router-dom';
 
-export default function LogoutPage() {
+function LogoutPage() {
   const { logout, isAuthenticated, isLoading } = useAuth0();
   const navigate = useNavigate();
 
@@ -34,3 +34,5 @@ export default function LogoutPage() {
     </div>
   );
 }
+
+export default LogoutPage;
